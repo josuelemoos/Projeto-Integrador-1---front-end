@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Busca Entregas - Protótipo de Telas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="screen-nav" aria-label="Navegação das telas">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 7h10v8H4z" />
+            <path d="M14 10h3l3 3v2h-6z" />
+            <circle cx="7" cy="17" r="2" />
+            <circle cx="17" cy="17" r="2" />
+          </svg>
+        </span>
+        <div>
+          <strong>Busca Entregas</strong>
+          <small>Protótipo front-end</small>
+        </div>
+      </div>
+      <nav>
+        <a href="#splash">01 Splash</a>
+        <a href="#auth">02 Login</a>
+        <a href="#client-dashboard">03 Cliente</a>
+        <a href="#search">04 Busca</a>
+        <a href="#details">05 Detalhes</a>
+        <a href="#history">06 Histórico</a>
+        <a href="#delivery-login">07 2FA</a>
+        <a href="#delivery-dashboard">08 Entregador</a>
+        <a href="#available">09 Pedidos</a>
+        <a href="#active-order">10 Ativa</a>
+        <a href="#confirmation">11 Confirmação</a>
+        <a href="#admin-dashboard">12 Admin</a>
+        <a href="#admin-orders">13 Gestão</a>
+        <a href="#audit">14 Auditoria</a>
+        <a href="#notifications">15 Notificações</a>
+      </nav>
+    </aside>
+
+    <main class="gallery">
+      <header class="gallery-header">
+        <div>
+          <p class="eyebrow">Front-end estático</p>
+          <h1>Telas do sistema de entregas</h1>
+        </div>
+        <p>
+          Protótipo visual baseado no documento <strong>telas_busca_entregas.md</strong>,
+          sem backend e com pequenas interações em JavaScript.
+        </p>
+      </header>
+
+      <section class="screen-block" id="splash">
+        <div class="screen-title">
+          <span>01</span>
+          <div>
+            <h2>Splash / Onboarding</h2>
+            <p>Fluxo do cliente</p>
+          </div>
+        </div>
+        <div class="phone splash-screen">
+          <div class="splash-center">
+            <div class="app-logo large" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path d="M9 15h21v16H9z" />
+                <path d="M30 20h7l6 6v5H30z" />
+                <circle cx="16" cy="34" r="4" />
+                <circle cx="36" cy="34" r="4" />
+                <path d="M14 12h10" />
+              </svg>
+            </div>
+            <h3>Busca Entregas</h3>
+            <p>Seu pedido acompanhado do início ao destino.</p>
+          </div>
+          <div class="splash-actions">
+            <button class="btn btn-white">Entrar</button>
+            <button class="btn btn-outline-white">Cadastrar</button>
+            <small>versão 1.0.0</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block" id="auth">
+        <div class="screen-title">
+          <span>02</span>
+          <div>
+            <h2>Login & Cadastro</h2>
+            <p>Abas alternáveis com campos de autenticação</p>
+          </div>
+        </div>
+        <div class="phone auth-screen">
+          <div class="top-symbol">
+            <span class="circle-icon orange" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M5 8h10v8H5z" />
+                <path d="M15 11h3l2 2v3h-5z" />
+                <circle cx="8" cy="18" r="2" />
+                <circle cx="17" cy="18" r="2" />
+              </svg>
+            </span>
+          </div>
+          <div class="auth-card">
+            <div class="tabs" role="tablist" aria-label="Autenticação">
+              <button class="tab active" data-tab="login" type="button">Entrar</button>
+              <button class="tab" data-tab="register" type="button">Cadastrar</button>
+            </div>
+            <form class="tab-panel active" data-panel="login">
+              <label>
+                Email
+                <input type="email" value="cliente@email.com" />
+              </label>
+              <label>
+                Senha
+                <span class="password-field">
+                  <input type="password" value="12345678" />
+                  <button type="button" aria-label="Mostrar senha">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </button>
+                </span>
+              </label>
+              <button class="btn btn-primary" type="button">Entrar</button>
+              <a href="#">Esqueci minha senha</a>
+            </form>
+            <form class="tab-panel" data-panel="register">
+              <label>
+                Nome completo
+                <input type="text" value="Marina Costa" />
+              </label>
+              <label>
+                Email
+                <input type="email" value="marina@email.com" />
+              </label>
+              <label>
+                Senha
+                <input type="password" value="12345678" />
+              </label>
+              <div class="strength">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="btn btn-primary" type="button">Criar conta</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block" id="client-dashboard">
+        <div class="screen-title">
+          <span>03</span>
+          <div>
+            <h2>Dashboard do Cliente</h2>
+            <p>Painel principal mobile</p>
+          </div>
+        </div>
+        <div class="phone app-screen with-bottom-nav">
+          <header class="mobile-header orange-header">
+            <div>
+              <small>Bom dia</small>
+              <h3>Olá, Marina!</h3>
+            </div>
+            <button class="icon-button light" aria-label="Notificações">
+              <svg viewBox="0 0 24 24">
+                <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 7h18s-3 0-3-7" />
+                <path d="M10 19a2 2 0 0 0 4 0" />
+              </svg>
+              <span class="dot"></span>
+            </button>
+          </header>
+          <div class="content overlap">
+            <label class="search-input">
+              <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m16 16 5 5" />
+              </svg>
+              <input type="search" placeholder="Buscar por código" />
+            </label>
+            <div class="section-row">
+              <h4>Em andamento</h4>
+              <a href="#">Ver todos</a>
+            </div>
+            <div class="horizontal-cards">
+              <article class="order-card compact">
+                <span class="status in-transit">Em rota</span>
+                <strong>BE-2048</strong>
+                <small>Atualizado há 12 min</small>
+                <button class="round-arrow" aria-label="Abrir detalhes">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              </article>
+              <article class="order-card compact">
+                <span class="status pending">Pendente</span>
+                <strong>BE-2033</strong>
+                <small>Aguardando coleta</small>
+                <button class="round-arrow" aria-label="Abrir detalhes">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              </article>
+            </div>
+            <div class="section-row">
+              <h4>Recentes</h4>
+            </div>
+            <div class="list">
+              <article class="list-item">
+                <span class="mini-icon orange">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z" /><path d="M8 7V5h8v2" /></svg>
+                </span>
+                <div>
+                  <strong>BE-1987</strong>
+                  <small>Entregue ontem</small>
+                </div>
+                <span class="status delivered">Entregue</span>
+              </article>
+              <article class="list-item">
+                <span class="mini-icon blue">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z" /><path d="M8 7V5h8v2" /></svg>
+                </span>
+                <div>
+                  <strong>BE-1972</strong>
+                  <small>Cancelado em 28/04</small>
+                </div>
+                <span class="status cancelled">Cancelado</span>
+              </article>
+            </div>
+          </div>
+          <nav class="bottom-nav">
+            <a class="active" href="#"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /></svg><span>Home</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m16 16 5 5" /></svg><span>Busca</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M12 8v5l3 2" /><circle cx="12" cy="12" r="9" /></svg><span>Histórico</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 7h18s-3 0-3-7" /></svg><span>Avisos</span></a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="screen-block" id="search">
+        <div class="screen-title">
+          <span>04</span>
+          <div>
+            <h2>Buscar Encomendas</h2>
+            <p>Busca, filtros e estado vazio</p>
+          </div>
+        </div>
+        <div class="phone app-screen">
+          <header class="plain-header">
+            <button class="icon-button" aria-label="Voltar">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <h3>Buscar Encomendas</h3>
+          </header>
+          <div class="content">
+            <label class="search-input prominent">
+              <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m16 16 5 5" />
+              </svg>
+              <input id="orderSearch" type="search" placeholder="Código, endereço ou status" />
+            </label>
+            <div class="chips" aria-label="Filtros">
+              <button class="chip active" data-search-filter="todos" type="button">Todos</button>
+              <button class="chip" data-search-filter="recolhido" type="button">Já Recolhido</button>
+              <button class="chip" data-search-filter="pendente" type="button">Pendente</button>
+              <button class="chip" data-search-filter="data" type="button">Por Data</button>
+            </div>
+            <div class="results-list" id="searchResults">
+              <article class="result-card">
+                <div>
+                  <strong>BE-2048</strong>
+                  <small>Prevista para hoje, 17:40</small>
+                </div>
+                <span class="status in-transit">Já recolhido</span>
+              </article>
+              <article class="result-card alt">
+                <div>
+                  <strong>BE-2033</strong>
+                  <small>Prevista para amanhã, 09:20</small>
+                </div>
+                <span class="status pending">Pendente</span>
+              </article>
+              <article class="result-card">
+                <div>
+                  <strong>BE-1987</strong>
+                  <small>Concluída em 30/04</small>
+                </div>
+                <span class="status delivered">Entregue</span>
+              </article>
+            </div>
+            <div class="empty-state" id="searchEmpty" hidden>
+              <div class="empty-illustration" aria-hidden="true">
+                <svg viewBox="0 0 96 96">
+                  <rect x="18" y="28" width="44" height="34" rx="6" />
+                  <path d="M18 38h44" />
+                  <circle cx="63" cy="61" r="12" />
+                  <path d="m72 70 9 9" />
+                </svg>
+              </div>
+              <strong>Nenhum resultado encontrado</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block" id="details">
+        <div class="screen-title">
+          <span>05</span>
+          <div>
+            <h2>Detalhes da Encomenda</h2>
+            <p>Linha do tempo, entregador e horário preferido</p>
+          </div>
+        </div>
+        <div class="phone app-screen">
+          <header class="mobile-header orange-header slim">
+            <button class="icon-button light" aria-label="Voltar">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <h3>BE-2048</h3>
+          </header>
+          <div class="content">
+            <ol class="timeline">
+              <li class="done">
+                <span></span>
+                <div>
+                  <strong>Pedido Criado</strong>
+                  <small>Hoje, 08:15</small>
+                </div>
+              </li>
+              <li class="done">
+                <span></span>
+                <div>
+                  <strong>Coletado</strong>
+                  <small>Hoje, 10:30</small>
+                </div>
+              </li>
+              <li class="current">
+                <span></span>
+                <div>
+                  <strong>Em Rota</strong>
+                  <small>Chegada prevista às 17:40</small>
+                </div>
+              </li>
+              <li>
+                <span></span>
+                <div>
+                  <strong>Entregue</strong>
+                  <small>Aguardando confirmação</small>
+                </div>
+              </li>
+            </ol>
+            <article class="profile-card">
+              <span class="avatar photo">RA</span>
+              <div>
+                <strong>Rafael Alves</strong>
+                <small>Entregador responsável</small>
+              </div>
+              <button class="icon-button blue" aria-label="Ligar para entregador">
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.92.33 1.82.63 2.68a2 2 0 0 1-.45 2.11L8.02 9.79a16 16 0 0 0 6.19 6.19l1.28-1.27a2 2 0 0 1 2.11-.45c.86.3 1.76.51 2.68.63A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </button>
+            </article>
+            <article class="time-card">
+              <label>
+                <span>
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l4 2" /></svg>
+                  Horário preferido
+                </span>
+                <select>
+                  <option>16:00 - 18:00</option>
+                  <option>18:00 - 20:00</option>
+                </select>
+              </label>
+              <button class="btn btn-primary" type="button">Confirmar horário</button>
+            </article>
+            <footer class="route-info">
+              <p><strong>Origem:</strong> Centro de Distribuição Messejana</p>
+              <p><strong>Destino:</strong> Rua das Flores, 120 - Aldeota</p>
+            </footer>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block" id="history">
+        <div class="screen-title">
+          <span>06</span>
+          <div>
+            <h2>Histórico</h2>
+            <p>Entregas anteriores com item expandido</p>
+          </div>
+        </div>
+        <div class="phone app-screen">
+          <header class="mobile-header orange-header slim">
+            <h3>Histórico</h3>
+          </header>
+          <div class="content">
+            <label class="date-filter">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 11h18" /></svg>
+              <select>
+                <option>Últimos 30 dias</option>
+                <option>Últimos 7 dias</option>
+                <option>Este ano</option>
+              </select>
+            </label>
+            <div class="history-list">
+              <article class="history-item expanded">
+                <button class="history-summary" type="button">
+                  <span class="mini-icon orange"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z" /><path d="M8 7V5h8v2" /></svg></span>
+                  <span>
+                    <strong>BE-1987</strong>
+                    <small>Concluída em 30/04</small>
+                  </span>
+                  <span class="status delivered">Entregue</span>
+                  <svg viewBox="0 0 24 24" class="chevron"><path d="M6 9l6 6 6-6" /></svg>
+                </button>
+                <div class="history-details">
+                  <p><strong>Origem:</strong> CD Eusébio</p>
+                  <p><strong>Destino:</strong> Av. Santos Dumont, 900</p>
+                  <p><strong>Entregador:</strong> Rafael Alves</p>
+                  <p class="rating" aria-label="Avaliação 5 estrelas">★★★★★</p>
+                </div>
+              </article>
+              <article class="history-item">
+                <button class="history-summary" type="button">
+                  <span class="mini-icon blue"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z" /><path d="M8 7V5h8v2" /></svg></span>
+                  <span>
+                    <strong>BE-1972</strong>
+                    <small>Cancelada em 28/04</small>
+                  </span>
+                  <span class="status cancelled">Cancelado</span>
+                  <svg viewBox="0 0 24 24" class="chevron"><path d="M6 9l6 6 6-6" /></svg>
+                </button>
+                <div class="history-details">
+                  <p><strong>Origem:</strong> CD Parangaba</p>
+                  <p><strong>Destino:</strong> Rua Nogueira Acioli, 54</p>
+                  <p><strong>Entregador:</strong> Camila Rocha</p>
+                  <p class="rating" aria-label="Avaliação 3 estrelas">★★★☆☆</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block double" id="delivery-login">
+        <div class="screen-title">
+          <span>07</span>
+          <div>
+            <h2>Login do Entregador com 2FA</h2>
+            <p>Etapa de senha e verificação por código</p>
+          </div>
+        </div>
+        <div class="double-phones">
+          <div class="phone auth-screen delivery-auth">
+            <div class="top-symbol">
+              <span class="circle-icon blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-5" /></svg>
+              </span>
+            </div>
+            <div class="auth-card">
+              <span class="area-badge">Área do Entregador</span>
+              <label>Email<input type="email" value="rafael@entregas.com" /></label>
+              <label>Senha<input type="password" value="12345678" /></label>
+              <button class="btn btn-primary" type="button">Continuar</button>
+            </div>
+          </div>
+          <div class="phone auth-screen delivery-auth">
+            <div class="security-alert">Novo dispositivo detectado</div>
+            <div class="top-symbol otp-symbol">
+              <span class="circle-icon blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><rect x="8" y="11" width="8" height="6" rx="1" /><path d="M10 11V9a2 2 0 1 1 4 0v2" /></svg>
+              </span>
+            </div>
+            <div class="auth-card otp-card">
+              <h3>Confirme o acesso</h3>
+              <div class="otp-inputs six">
+                <input value="4" maxlength="1" />
+                <input value="8" maxlength="1" />
+                <input value="1" maxlength="1" />
+                <input value="9" maxlength="1" />
+                <input value="2" maxlength="1" />
+                <input value="6" maxlength="1" />
+              </div>
+              <button class="btn btn-primary" type="button">Verificar</button>
+              <a href="#">Reenviar código em 00:42</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block" id="delivery-dashboard">
+        <div class="screen-title">
+          <span>08</span>
+          <div>
+            <h2>Dashboard do Entregador</h2>
+            <p>Pedido ativo, disponibilidade e oportunidades</p>
+          </div>
+        </div>
+        <div class="phone app-screen with-bottom-nav">
+          <header class="mobile-header red-header">
+            <div class="profile-head">
+              <span class="avatar">RA</span>
+              <div>
+                <small>Entregador</small>
+                <h3>Rafael Alves</h3>
+              </div>
+            </div>
+            <button class="toggle online" type="button" aria-label="Alternar status online">
+              <span></span>
+            </button>
+          </header>
+          <div class="content">
+            <article class="active-delivery-card">
+              <span class="status in-transit">Ativa</span>
+              <h4>Rua das Flores, 120</h4>
+              <p>Em rota para Aldeota</p>
+              <button class="btn btn-link-blue" type="button">Ver detalhes</button>
+            </article>
+            <div class="section-row">
+              <h4>Pedidos disponíveis</h4>
+            </div>
+            <div class="available-mini">
+              <article>
+                <strong>3,2 km</strong>
+                <small>Meireles → Centro</small>
+                <span>R$ 14,90</span>
+              </article>
+              <article>
+                <strong>5,8 km</strong>
+                <small>Fátima → Papicu</small>
+                <span>R$ 22,50</span>
+              </article>
+              <article>
+                <strong>2,1 km</strong>
+                <small>Aldeota → Cocó</small>
+                <span>R$ 12,20</span>
+              </article>
+            </div>
+          </div>
+          <nav class="bottom-nav">
+            <a class="active" href="#"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /></svg><span>Home</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z" /></svg><span>Pedidos</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 8v5l3 2" /></svg><span>Histórico</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 22c1.5-4 14.5-4 16 0" /></svg><span>Perfil</span></a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="screen-block" id="available">
+        <div class="screen-title">
+          <span>09</span>
+          <div>
+            <h2>Pedidos Disponíveis</h2>
+            <p>Aceitar ou recusar solicitações</p>
+          </div>
+        </div>
+        <div class="phone app-screen">
+          <header class="mobile-header red-header slim">
+            <h3>Pedidos Disponíveis</h3>
+            <span class="count-badge">3</span>
+          </header>
+          <div class="content">
+            <article class="accept-card">
+              <div class="route-icons">
+                <span class="mini-icon orange"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-12A7 7 0 1 0 5 9c0 6.8 7 12 7 12z" /><circle cx="12" cy="9" r="2" /></svg></span>
+                <span class="route-line"></span>
+                <span class="mini-icon blue"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /></svg></span>
+              </div>
+              <h4>CD Messejana → Aldeota</h4>
+              <div class="accept-meta">
+                <span>7,4 km</span>
+                <strong>01:20</strong>
+              </div>
+              <div class="timer-bar"><span></span></div>
+              <div class="split-actions">
+                <button class="btn btn-green" type="button">Aceitar</button>
+                <button class="btn btn-light-red" type="button">Recusar</button>
+              </div>
+            </article>
+            <article class="accept-card">
+              <div class="route-icons">
+                <span class="mini-icon orange"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-12A7 7 0 1 0 5 9c0 6.8 7 12 7 12z" /><circle cx="12" cy="9" r="2" /></svg></span>
+                <span class="route-line"></span>
+                <span class="mini-icon blue"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /></svg></span>
+              </div>
+              <h4>Centro → Fátima</h4>
+              <div class="accept-meta">
+                <span>3,8 km</span>
+                <strong>02:35</strong>
+              </div>
+              <div class="timer-bar medium"><span></span></div>
+              <div class="split-actions">
+                <button class="btn btn-green" type="button">Aceitar</button>
+                <button class="btn btn-light-red" type="button">Recusar</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block" id="active-order">
+        <div class="screen-title">
+          <span>10</span>
+          <div>
+            <h2>Entrega Ativa</h2>
+            <p>Controle de etapas para o entregador</p>
+          </div>
+        </div>
+        <div class="phone app-screen">
+          <header class="mobile-header orange-header active-order-header">
+            <div>
+              <small>Destino</small>
+              <h3>Rua das Flores, 120</h3>
+            </div>
+            <svg viewBox="0 0 24 24" class="header-map"><path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3z" /><path d="M9 3v15M15 6v15" /></svg>
+          </header>
+          <div class="progress-steps">
+            <span class="done"></span>
+            <span class="active"></span>
+            <span></span>
+          </div>
+          <div class="content">
+            <div class="status-actions">
+              <button class="btn btn-primary status-action done" type="button">
+                <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>
+                Marcar como Coletado
+              </button>
+              <button class="btn btn-disabled" type="button">
+                <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M13 5l7 7-7 7" /></svg>
+                Marcar Em Rota
+              </button>
+              <button class="btn btn-green muted" type="button">
+                <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" /></svg>
+                Marcar como Entregue
+              </button>
+            </div>
+            <article class="client-card">
+              <div>
+                <small>Cliente</small>
+                <strong>Marina Costa</strong>
+              </div>
+              <button class="btn btn-call" type="button">
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.92.33 1.82.63 2.68a2 2 0 0 1-.45 2.11L8.02 9.79a16 16 0 0 0 6.19 6.19l1.28-1.27a2 2 0 0 1 2.11-.45c.86.3 1.76.51 2.68.63A2 2 0 0 1 22 16.92z" />
+                </svg>
+                Ligar
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block" id="confirmation">
+        <div class="screen-title">
+          <span>11</span>
+          <div>
+            <h2>Confirmação de Entrega</h2>
+            <p>Código, sucesso e erro em estados front-end</p>
+          </div>
+        </div>
+        <div class="phone app-screen confirmation-screen" data-confirmation-state="idle">
+          <div class="content center-content">
+            <div class="confirmation-idle">
+              <span class="delivery-check">
+                <svg viewBox="0 0 64 64"><rect x="12" y="18" width="40" height="30" rx="6" /><path d="m24 33 6 6 12-14" /></svg>
+              </span>
+              <h3>Solicite o código ao destinatário</h3>
+              <div class="otp-inputs">
+                <input value="2" maxlength="1" />
+                <input value="4" maxlength="1" />
+                <input value="8" maxlength="1" />
+                <input value="1" maxlength="1" />
+              </div>
+              <p class="error-copy">Código inválido. Tente novamente.</p>
+              <button class="btn btn-primary confirm-button" type="button">Confirmar entrega</button>
+              <button class="btn btn-secondary error-button" type="button">Simular erro</button>
+            </div>
+            <div class="confirmation-success">
+              <span class="success-icon">
+                <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" /><path d="m22 33 7 7 14-17" /></svg>
+              </span>
+              <h3>Entrega confirmada!</h3>
+              <button class="btn btn-green reset-confirmation" type="button">Voltar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block wide" id="admin-dashboard">
+        <div class="screen-title">
+          <span>12</span>
+          <div>
+            <h2>Dashboard Administrativo</h2>
+            <p>Métricas, tabela recente e gráfico semanal</p>
+          </div>
+        </div>
+        <div class="desktop admin-screen">
+          <aside class="admin-sidebar">
+            <strong>Busca Entregas</strong>
+            <a class="active" href="#"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /></svg>Dashboard</a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z" /></svg>Pedidos</a>
+            <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 22c1.5-4 14.5-4 16 0" /></svg>Entregadores</a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M8 9h8M8 14h6" /></svg>Logs</a>
+          </aside>
+          <div class="admin-main">
+            <header class="admin-topbar">
+              <h3>Painel do Sistema</h3>
+              <span class="avatar small">AD</span>
+            </header>
+            <div class="admin-content">
+              <div class="metric-grid">
+                <article class="metric orange-metric"><small>Pedidos Hoje</small><strong>128</strong><span>+12%</span></article>
+                <article class="metric yellow-metric"><small>Em Andamento</small><strong>36</strong><span>+4%</span></article>
+                <article class="metric blue-metric"><small>Entregadores Ativos</small><strong>21</strong><span>+8%</span></article>
+                <article class="metric red-metric"><small>Alertas</small><strong>5</strong><span>-2%</span></article>
+              </div>
+              <div class="admin-grid">
+                <section class="admin-panel">
+                  <h4>Pedidos recentes</h4>
+                  <table>
+                    <thead>
+                      <tr><th>Código</th><th>Cliente</th><th>Status</th><th>Atualização</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>BE-2048</td><td>Marina Costa</td><td><span class="status in-transit">Em rota</span></td><td>12 min</td></tr>
+                      <tr><td>BE-2033</td><td>Igor Lima</td><td><span class="status pending">Pendente</span></td><td>34 min</td></tr>
+                      <tr><td>BE-1987</td><td>Paula Dias</td><td><span class="status delivered">Entregue</span></td><td>Ontem</td></tr>
+                    </tbody>
+                  </table>
+                </section>
+                <section class="admin-panel chart-panel">
+                  <h4>Volume semanal</h4>
+                  <div class="bar-chart" aria-label="Gráfico de volume semanal">
+                    <span style="height: 40%"></span>
+                    <span style="height: 56%"></span>
+                    <span style="height: 48%"></span>
+                    <span style="height: 68%"></span>
+                    <span style="height: 74%"></span>
+                    <span style="height: 62%"></span>
+                    <span style="height: 85%"></span>
+                  </div>
+                  <div class="chart-days"><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span><span>D</span></div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block wide" id="admin-orders">
+        <div class="screen-title">
+          <span>13</span>
+          <div>
+            <h2>Gestão de Pedidos</h2>
+            <p>Filtros, tabela e ações de linha</p>
+          </div>
+        </div>
+        <div class="desktop admin-screen">
+          <aside class="admin-sidebar">
+            <strong>Busca Entregas</strong>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /></svg>Dashboard</a>
+            <a class="active" href="#"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z" /></svg>Pedidos</a>
+            <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 22c1.5-4 14.5-4 16 0" /></svg>Equipe</a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /></svg>Logs</a>
+          </aside>
+          <div class="admin-main">
+            <header class="admin-topbar">
+              <h3>Gestão de Pedidos</h3>
+              <span class="avatar small">AD</span>
+            </header>
+            <div class="admin-content">
+              <div class="filters-row">
+                <select><option>Status</option><option>Em rota</option><option>Pendente</option></select>
+                <input type="date" value="2026-05-01" />
+                <select><option>Entregador</option><option>Rafael Alves</option></select>
+                <button class="btn btn-primary" type="button">Filtrar</button>
+                <button class="btn btn-muted" type="button">Limpar</button>
+              </div>
+              <section class="admin-panel full-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Código</th><th>Cliente</th><th>Entregador</th><th>Origem</th><th>Destino</th><th>Status</th><th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>BE-2048</td><td>Marina Costa</td><td>Rafael Alves</td><td>Messejana</td><td>Aldeota</td><td><span class="status in-transit">Em rota</span></td>
+                      <td class="row-actions">
+                        <button class="blue" aria-label="Ver pedido"><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></svg></button>
+                        <button class="orange" aria-label="Editar pedido"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z" /></svg></button>
+                        <button class="red" aria-label="Intervir"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 22c1.5-4 14.5-4 16 0" /></svg></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>BE-2033</td><td>Igor Lima</td><td>Camila Rocha</td><td>Centro</td><td>Papicu</td><td><span class="status pending">Pendente</span></td>
+                      <td class="row-actions">
+                        <button class="blue" aria-label="Ver pedido"><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></svg></button>
+                        <button class="orange" aria-label="Editar pedido"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z" /></svg></button>
+                        <button class="red" aria-label="Intervir"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 22c1.5-4 14.5-4 16 0" /></svg></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>BE-1987</td><td>Paula Dias</td><td>Daniel Moura</td><td>Eusébio</td><td>Meireles</td><td><span class="status delivered">Entregue</span></td>
+                      <td class="row-actions">
+                        <button class="blue" aria-label="Ver pedido"><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></svg></button>
+                        <button class="orange" aria-label="Editar pedido"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z" /></svg></button>
+                        <button class="red" aria-label="Intervir"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 22c1.5-4 14.5-4 16 0" /></svg></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <footer class="pagination">
+                  <button type="button">Anterior</button>
+                  <span>1 de 8</span>
+                  <button type="button">Próxima</button>
+                </footer>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block wide" id="audit">
+        <div class="screen-title">
+          <span>14</span>
+          <div>
+            <h2>Logs de Auditoria</h2>
+            <p>Registro de ações sensíveis</p>
+          </div>
+        </div>
+        <div class="desktop admin-screen">
+          <aside class="admin-sidebar">
+            <strong>Busca Entregas</strong>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /></svg>Dashboard</a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z" /></svg>Pedidos</a>
+            <a class="active" href="#"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M8 9h8M8 14h6" /></svg>Auditoria</a>
+          </aside>
+          <div class="admin-main">
+            <header class="admin-topbar">
+              <h3>Logs de Auditoria</h3>
+              <span class="avatar small">AD</span>
+            </header>
+            <div class="admin-content">
+              <div class="filters-row">
+                <input type="date" value="2026-05-01" />
+                <select><option>Tipo de ação</option><option>Intervenção</option><option>Login</option></select>
+                <button class="btn btn-link-blue filled" type="button">Exportar</button>
+              </div>
+              <section class="admin-panel full-table">
+                <table>
+                  <thead>
+                    <tr><th>Timestamp</th><th>Usuário</th><th>Perfil</th><th>Ação executada</th><th>IP</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="critical"><td>01/05/2026 14:22</td><td>Ana Bezerra</td><td><span class="role admin-role">Admin</span></td><td>Alterou entregador do pedido BE-2048</td><td>192.168.0.42</td></tr>
+                    <tr><td>01/05/2026 13:58</td><td>Rafael Alves</td><td><span class="role delivery-role">Delivery</span></td><td>Marcou pedido como coletado</td><td>192.168.0.84</td></tr>
+                    <tr class="critical"><td>01/05/2026 13:12</td><td>Ana Bezerra</td><td><span class="role admin-role">Admin</span></td><td>Exportou relatório de auditoria</td><td>192.168.0.42</td></tr>
+                    <tr><td>01/05/2026 12:47</td><td>Camila Rocha</td><td><span class="role delivery-role">Delivery</span></td><td>Recusou pedido disponível</td><td>192.168.0.91</td></tr>
+                  </tbody>
+                </table>
+                <footer class="pagination">
+                  <span>248 registros encontrados</span>
+                  <button type="button">Anterior</button>
+                  <button type="button">Próxima</button>
+                </footer>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-block" id="notifications">
+        <div class="screen-title">
+          <span>15</span>
+          <div>
+            <h2>Central de Notificações</h2>
+            <p>Alertas para cliente e entregador</p>
+          </div>
+        </div>
+        <div class="phone app-screen notifications-screen">
+          <header class="mobile-header orange-header notify-header">
+            <h3>Notificações</h3>
+            <button class="mark-read" type="button">Marcar lidas</button>
+          </header>
+          <div class="content">
+            <section class="notification-group">
+              <h4>Hoje</h4>
+              <article class="notification-item unread">
+                <span class="blue-dot"></span>
+                <span class="mini-icon blue"><svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M13 5l7 7-7 7" /></svg></span>
+                <div>
+                  <strong>Pedido BE-2048 saiu para entrega</strong>
+                  <small>há 12 min</small>
+                </div>
+              </article>
+              <article class="notification-item unread">
+                <span class="blue-dot"></span>
+                <span class="mini-icon orange"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l4 2" /></svg></span>
+                <div>
+                  <strong>Confirme seu horário preferido</strong>
+                  <small>há 35 min</small>
+                </div>
+              </article>
+            </section>
+            <section class="notification-group">
+              <h4>Ontem</h4>
+              <article class="notification-item">
+                <span class="mini-icon orange"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+                <div>
+                  <strong>Pedido BE-1987 foi entregue</strong>
+                  <small>ontem às 18:04</small>
+                </div>
+              </article>
+            </section>
+            <section class="notification-group">
+              <h4>Esta semana</h4>
+              <article class="notification-item">
+                <span class="mini-icon blue"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z" /></svg></span>
+                <div>
+                  <strong>Novo pedido cadastrado</strong>
+                  <small>terça-feira</small>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
