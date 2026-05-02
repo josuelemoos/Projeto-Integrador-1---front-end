@@ -38,6 +38,7 @@ button,
 input,
 select {
   font: inherit;
+  min-width: 0;
 }
 
 button {
@@ -51,6 +52,7 @@ a {
 
 svg {
   display: block;
+  max-width: 100%;
   width: 1.1rem;
   height: 1.1rem;
   fill: none;
@@ -119,6 +121,11 @@ svg {
 .screen-nav nav {
   display: grid;
   gap: 16px;
+  scrollbar-width: none;
+}
+
+.screen-nav nav::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-group {
@@ -155,6 +162,7 @@ svg {
   width: min(1280px, calc(100vw - 290px));
   margin-left: 250px;
   padding: 38px 28px 72px;
+  overflow-wrap: anywhere;
 }
 
 .gallery-header {
@@ -984,6 +992,10 @@ select:focus {
   scrollbar-width: none;
 }
 
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
 .chip {
   flex: 0 0 auto;
   min-height: 36px;
@@ -1708,6 +1720,7 @@ select:focus {
 
 .admin-panel {
   min-width: 0;
+  overflow-x: auto;
   padding: 18px;
   background: var(--white);
   border: 1px solid rgba(217, 208, 199, 0.75);
@@ -1721,6 +1734,7 @@ select:focus {
 
 table {
   width: 100%;
+  min-width: 600px;
   border-collapse: collapse;
   font-size: 0.88rem;
 }
@@ -1953,14 +1967,81 @@ tbody tr:nth-child(even) {
     overflow-x: auto;
   }
 
-  .admin-screen {
-    min-width: 940px;
+  .desktop.admin-screen {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+    overflow-x: hidden;
+  }
+
+  .admin-sidebar {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 8px;
+    overflow-x: auto;
+    padding: 16px;
+    scrollbar-width: none;
+  }
+
+  .admin-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .admin-sidebar strong {
+    grid-column: 1 / -1;
+    margin-bottom: 4px;
+  }
+
+  .admin-sidebar a {
+    white-space: nowrap;
+  }
+
+  .admin-content {
+    padding: 18px;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .screen-block,
+  .flow-heading {
+    scroll-margin-top: 250px;
   }
 }
 
 @media (max-width: 480px) {
+  .screen-nav {
+    max-height: 34vh;
+    padding: 14px;
+  }
+
+  .brand {
+    padding-bottom: 12px;
+    margin-bottom: 10px;
+  }
+
   .screen-nav nav {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scroll-snap-type: x proximity;
+  }
+
+  .nav-group {
+    min-width: 178px;
+    scroll-snap-align: start;
   }
 
   .screen-nav a {
@@ -1991,5 +2072,56 @@ tbody tr:nth-child(even) {
 
   .screen-title h2 {
     font-size: 1.15rem;
+  }
+
+  .gallery {
+    gap: 34px;
+    padding: 18px 10px 48px;
+  }
+
+  .gallery-header {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .gallery-header h1 {
+    font-size: 1.85rem;
+    line-height: 1.08;
+  }
+
+  .flow-card {
+    min-height: auto;
+  }
+
+  .admin-sidebar {
+    grid-template-columns: repeat(2, minmax(138px, 1fr));
+  }
+
+  .admin-topbar {
+    height: auto;
+    min-height: 70px;
+    padding: 14px 16px;
+  }
+
+  .admin-content {
+    padding: 14px;
+  }
+
+  .metric-grid,
+  .filters-row {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    min-height: 108px;
+  }
+
+  .bar-chart {
+    height: 210px;
+  }
+
+  .screen-block,
+  .flow-heading {
+    scroll-margin-top: 36vh;
   }
 }
