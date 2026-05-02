@@ -13,6 +13,8 @@ const setSummaryOpen = (isOpen) => {
   }
 };
 
+setSummaryOpen(false);
+
 summaryToggle?.addEventListener("click", () => {
   setSummaryOpen(!document.body.classList.contains("summary-open"));
 });
