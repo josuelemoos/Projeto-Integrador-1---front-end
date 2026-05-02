@@ -66,16 +66,62 @@ svg {
   display: none !important;
 }
 
+.summary-toggle {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 25;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  color: var(--white);
+  background: var(--primary-orange);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 12px 26px rgba(26, 26, 26, 0.22);
+  font-weight: 900;
+}
+
+.summary-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(26, 26, 26, 0.58);
+  backdrop-filter: blur(2px);
+}
+
+body.summary-open {
+  overflow: hidden;
+}
+
 .screen-nav {
   position: fixed;
   inset: 0 auto 0 0;
-  z-index: 10;
-  width: 250px;
+  z-index: 40;
+  width: min(320px, calc(100vw - 34px));
   padding: 22px 18px;
   color: var(--white);
   background: #1a1a1a;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
   overflow-y: auto;
+  box-shadow: 24px 0 60px rgba(26, 26, 26, 0.34);
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(calc(-100% - 24px));
+  transition: transform 0.22s ease, visibility 0.22s ease;
+}
+
+body.summary-open .screen-nav {
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
 }
 
 .brand {
@@ -85,6 +131,22 @@ svg {
   padding-bottom: 18px;
   margin-bottom: 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.summary-close {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-left: auto;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  border: 0;
+  border-radius: 10px;
+}
+
+.summary-close:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .brand strong,
@@ -159,9 +221,9 @@ svg {
 .gallery {
   display: grid;
   gap: 52px;
-  width: min(1280px, calc(100vw - 290px));
-  margin-left: 250px;
-  padding: 38px 28px 72px;
+  width: min(1280px, calc(100vw - 56px));
+  margin: 0 auto;
+  padding: 86px 0 72px;
   overflow-wrap: anywhere;
 }
 
@@ -1928,16 +1990,14 @@ tbody tr:nth-child(even) {
 
 @media (max-width: 980px) {
   .screen-nav {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    max-height: 230px;
-    border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    width: min(320px, calc(100vw - 28px));
+    max-height: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 0;
   }
 
   .screen-nav nav {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .nav-group {
@@ -1947,7 +2007,7 @@ tbody tr:nth-child(even) {
   .gallery {
     width: 100%;
     margin-left: 0;
-    padding: 22px 14px 60px;
+    padding: 82px 14px 60px;
   }
 
   .gallery-header {
@@ -2016,13 +2076,20 @@ tbody tr:nth-child(even) {
 
   .screen-block,
   .flow-heading {
-    scroll-margin-top: 250px;
+    scroll-margin-top: 90px;
   }
 }
 
 @media (max-width: 480px) {
+  .summary-toggle {
+    top: 12px;
+    left: 10px;
+    min-height: 40px;
+    padding: 0 12px;
+  }
+
   .screen-nav {
-    max-height: 34vh;
+    width: min(320px, calc(100vw - 20px));
     padding: 14px;
   }
 
@@ -2032,16 +2099,14 @@ tbody tr:nth-child(even) {
   }
 
   .screen-nav nav {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
+    display: grid;
+    gap: 16px;
+    overflow-x: visible;
     padding-bottom: 4px;
-    scroll-snap-type: x proximity;
   }
 
   .nav-group {
-    min-width: 178px;
-    scroll-snap-align: start;
+    min-width: 0;
   }
 
   .screen-nav a {
@@ -2076,7 +2141,7 @@ tbody tr:nth-child(even) {
 
   .gallery {
     gap: 34px;
-    padding: 18px 10px 48px;
+    padding: 72px 10px 48px;
   }
 
   .gallery-header {
@@ -2122,6 +2187,6 @@ tbody tr:nth-child(even) {
 
   .screen-block,
   .flow-heading {
-    scroll-margin-top: 36vh;
+    scroll-margin-top: 82px;
   }
 }

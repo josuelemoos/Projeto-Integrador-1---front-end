@@ -1,3 +1,36 @@
+const summaryToggle = document.querySelector(".summary-toggle");
+const summaryMenu = document.querySelector("#screenSummary");
+const summaryOverlay = document.querySelector(".nav-overlay");
+const summaryCloseButtons = document.querySelectorAll("[data-close-summary]");
+
+const setSummaryOpen = (isOpen) => {
+  document.body.classList.toggle("summary-open", isOpen);
+  summaryToggle?.setAttribute("aria-expanded", String(isOpen));
+  summaryMenu?.setAttribute("aria-hidden", String(!isOpen));
+
+  if (summaryOverlay) {
+    summaryOverlay.hidden = !isOpen;
+  }
+};
+
+summaryToggle?.addEventListener("click", () => {
+  setSummaryOpen(!document.body.classList.contains("summary-open"));
+});
+
+summaryCloseButtons.forEach((button) => {
+  button.addEventListener("click", () => setSummaryOpen(false));
+});
+
+summaryMenu?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => setSummaryOpen(false));
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setSummaryOpen(false);
+  }
+});
+
 const tabs = document.querySelectorAll(".tab");
 const tabPanels = document.querySelectorAll(".tab-panel");
 

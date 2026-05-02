@@ -7,7 +7,17 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <aside class="screen-nav" aria-label="Navegação das telas">
+    <button class="summary-toggle" type="button" aria-expanded="false" aria-controls="screenSummary">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 6h16" />
+        <path d="M4 12h16" />
+        <path d="M4 18h16" />
+      </svg>
+      <span>Sumário</span>
+    </button>
+    <div class="nav-overlay" data-close-summary hidden></div>
+
+    <aside class="screen-nav" id="screenSummary" aria-label="Navegação das telas" aria-hidden="true">
       <div class="brand">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24">
@@ -21,6 +31,12 @@
           <strong>Busca Entregas</strong>
           <small>Protótipo front-end</small>
         </div>
+        <button class="summary-close" type="button" aria-label="Fechar sumário" data-close-summary>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
       </div>
       <nav>
         <div class="nav-group">
