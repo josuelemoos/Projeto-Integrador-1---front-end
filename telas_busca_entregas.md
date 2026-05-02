@@ -36,6 +36,33 @@ The design system uses warm colors (orange, red, warm yellow) combined with blue
 
 ---
 
+## SUMÁRIO POR FLUXO
+
+### Telas do Usuário / Cliente
+- SCREEN 01 — Splash / Onboarding
+- SCREEN 02 — Login & Register
+- SCREEN 03 — Client Dashboard
+- SCREEN 04 — Search & Filters
+- SCREEN 05 — Order Details
+- SCREEN 06 — Order History
+
+### Telas do Entregador
+- SCREEN 07 — Delivery Person Login with 2FA
+- SCREEN 08 — Delivery Person Dashboard
+- SCREEN 09 — Available Orders
+- SCREEN 10 — Active Order (Delivery Person)
+- SCREEN 11 — Delivery Confirmation
+
+### Telas Administrativas
+- SCREEN 12 — Admin Dashboard
+- SCREEN 13 — Order Management (Admin)
+- SCREEN 14 — Audit Logs (Admin)
+
+### Tela Compartilhada
+- SCREEN 15 — Notification Center
+
+---
+
 ## SCREEN 01 — Splash / Onboarding
 **Flow:** Client
 **Type:** Mobile opening screen for a delivery app
